@@ -1,14 +1,14 @@
 public class Catalog {
+    
     private static Catalog instance;
     private static Object lock = new Object();
 
     private Catalog() {
-
     }
 
     public static Catalog getInstance() {
         if (instance == null) {
-            synchronized (lock){
+            synchronized (lock) {
                 if (instance == null) {
                     instance = new Catalog();
                 }
@@ -26,11 +26,11 @@ public class Catalog {
         System.out.println("The King wanted to throw a party but not enough money was available.");
     }
 
-    public void totalMoney(int value){
+    public void totalMoney(int value) {
         System.out.println("The treasure holds  " + value + "$");
     }
 
-    public void addedValuables(String valuables){
+    public void addedValuables(String valuables) {
         System.out.println("The tax collector added these valuables to the treasure: " + valuables);
     }
 }
