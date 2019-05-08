@@ -6,6 +6,9 @@ public class GoldIngot implements Valuable {
 
     @Override
     public int getValue() {
-        return 32;
+        return 2;
+    }
+    public String toString() {
+    	return this.getName() + ": " + this.getValue();
     }
 }

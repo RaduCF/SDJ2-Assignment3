@@ -7,7 +7,10 @@ public class Diamond implements Valuable {
 
     public int getValue()
     {
-        return 64;
+        return 4;
     }
 
+    public String toString() {
+    	return this.getName() + ": " + this.getValue();
+    }
 }

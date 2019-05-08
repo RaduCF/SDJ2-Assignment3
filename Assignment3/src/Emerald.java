@@ -7,7 +7,10 @@ public class Emerald implements Valuable {
 
     public int getValue()
     {
-        return 128;
+        return 8;
+    }
+    public String toString() {
+    	return this.getName() + ": " + this.getValue();
     }
 
 }
