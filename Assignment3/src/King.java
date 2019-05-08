@@ -14,7 +14,7 @@ public class King implements Runnable {
     public void run() {
         while (true) {
             int value = randomValue(100, 200);
-            treasure.getValue(value);
+            treasure.GetValue(value);
             catalog.throwParty(value);
             try {
                 sleep(15000);
