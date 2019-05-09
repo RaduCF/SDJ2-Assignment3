@@ -2,6 +2,7 @@ import java.util.*;
 
 public class TreasureRoom {
 <<<<<<< HEAD
+<<<<<<< HEAD
     static Queue<Valuable> queue;
     static ArrayList<Valuable> valuables;
 
@@ -88,6 +89,8 @@ public class TreasureRoom {
     }
 
 =======
+=======
+>>>>>>> parent of ecb7b62... Merge branch 'master' into Accountant
 	static Queue<Valuable> queue;
 	static ArrayList<Valuable> valuables;
 	
