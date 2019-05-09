@@ -15,8 +15,13 @@ public Accountant()
 
         while(true){
 
-
-            catalog.totalMoney(countWealth());
+            try {
+                Thread.sleep(10000);
+                catalog.totalMoney(countWealth());
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
         }
 
