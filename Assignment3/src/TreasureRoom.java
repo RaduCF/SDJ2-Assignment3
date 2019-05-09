@@ -1,18 +1,17 @@
 import java.util.*;
 
 public class TreasureRoom {
-	static Queue<Valuable> queue;
-	static ArrayList<Valuable> valuables;
+	public ArrayList<Valuable> valuables;
 	
 	
 	public TreasureRoom() {
 		 valuables = new ArrayList<>();
-		 queue = new LinkedList<>();
 	}
 	
-	public void enqueue(Valuable valuable) {
-		queue.add(valuable);
-	}
+	
+	public synchronized void add(ArrayList<Valuable> valuables) {
+		this.valuables.addAll(valuables);	
+		}
 	
 	public ArrayList<Valuable> getValuables() {
 		return valuables;
@@ -25,6 +24,8 @@ public class TreasureRoom {
 	 */
 	public int GetValue(int value) {
 		int[] values = {8,4,2,1};
+		
+		ArrayList<Valuable> remove = new ArrayList<>();
 		
 		for (int i = 0; i < values.length; i++) {
 			values[i] = (value - (value % values[i]))/values[i];
@@ -58,31 +59,18 @@ public class TreasureRoom {
 			
 			out += values[valueIndex];
 			values[valueIndex]--;
-			valuables.remove(i);
+			remove.add(valuables.get(i));
+			
+			
+		}
+		for (int i = 0; i < remove.size(); i++) {
+			valuables.remove(remove.get(i));
 		}
 		return out;
 	}
 	
 	public void removeByIndex(int i) {
 		valuables.remove(i);
-	}
-
-	static class Write implements Runnable {
-
-		@Override
-		public void run() {
-			while(true){
-				if (queue.size() == 0) {
-					try {
-						wait(5000);
-					} catch (InterruptedException e) {
-						System.out.println(e);
-					}
-				}
-				valuables.add(queue.poll());	
-			}
-		}
-		
 	}
 	
 }
