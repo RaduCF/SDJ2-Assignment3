@@ -4,9 +4,10 @@ public class Accountant implements Runnable {
     private TreasureRoom treasureRoom;
     private Catalog catalog;
 
-public Accountant()
+public Accountant(TreasureRoom treasureRoom)
 {
-    catalog = Catalog.getInstance();
+    this.catalog = Catalog.getInstance();
+    this.treasureRoom= treasureRoom;
 
 }
 
