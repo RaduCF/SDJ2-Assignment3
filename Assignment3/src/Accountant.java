@@ -4,10 +4,10 @@ public class Accountant implements Runnable {
     private TreasureRoom treasureRoom;
     private Catalog catalog;
 
-public Accountant()
+public Accountant(TreasureRoom treasureRoom)
 {
     catalog = Catalog.getInstance();
-
+    this.treasureRoom = treasureRoom;
 }
 
     @Override
@@ -16,15 +16,13 @@ public Accountant()
         while(true){
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
                 catalog.totalMoney(countWealth());
-                Thread.sleep(10000);
+                Thread.sleep(15000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 
     private int countWealth()
