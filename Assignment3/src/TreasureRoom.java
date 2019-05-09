@@ -64,8 +64,12 @@ public class TreasureRoom {
 		return out;
 	}
 
-	public void removeByIndex(int i) {
-		valuables.remove(i);
+	public int getBalance(){
+		int balance = 0;
+		for (Valuable valuable : valuables) {
+			balance += valuable.getValue();
+		}
+		return balance;
 	}
 
 }

@@ -1,45 +1,54 @@
 import java.util.ArrayList;
 
-public class TaxCollector implements Runnable{
+import static java.lang.Thread.sleep;
+
+public class TaxCollector implements Runnable {
 
     private TreasureRoom treasureRoom;
+    private Catalog catalog;
 
-    public TaxCollector(TreasureRoom treasureRoom)
-    {
+    public TaxCollector(TreasureRoom treasureRoom) {
         this.treasureRoom = treasureRoom;
+        this.catalog = Catalog.getInstance();
     }
 
     @Override
     public void run() {
-        ArrayList<Valuable> valuables = new ArrayList<>();
-
-        int value = (int)((Math.random() * 150) + 50);
-
-        int tempValue = 0;
-        while (tempValue < value)
+        while (true)
         {
+            ArrayList<Valuable> valuables = new ArrayList<>();
 
-            switch ((int)(Math.random() * 4))
-            {
-                case 0:
-                    valuables.add(ValuableFactory.getValuable("Diamond"));
-                    tempValue += ValuableFactory.getValuable("Diamond").getValue();
-                    break;
-                case 1:
-                    valuables.add(ValuableFactory.getValuable("Emerald"));
-                    tempValue += ValuableFactory.getValuable("Emerald").getValue();
-                    break;
-                case 2:
-                    valuables.add(ValuableFactory.getValuable("Gold Ingot"));
-                    tempValue += ValuableFactory.getValuable("Gold Ingot").getValue();
-                    break;
-                case 3:
-                    valuables.add(ValuableFactory.getValuable("Iron Ingot"));
-                    tempValue += ValuableFactory.getValuable("Iron Ingot").getValue();
-                    break;
+            int value = (int) ((Math.random() * 150) + 50);
+
+            int tempValue = 0;
+            while (tempValue < value) {
+
+                switch ((int) (Math.random() * 4)) {
+                    case 0:
+                        valuables.add(ValuableFactory.getValuable("Diamond"));
+                        tempValue += ValuableFactory.getValuable("Diamond").getValue();
+                        break;
+                    case 1:
+                        valuables.add(ValuableFactory.getValuable("Emerald"));
+                        tempValue += ValuableFactory.getValuable("Emerald").getValue();
+                        break;
+                    case 2:
+                        valuables.add(ValuableFactory.getValuable("Gold Ingot"));
+                        tempValue += ValuableFactory.getValuable("Gold Ingot").getValue();
+                        break;
+                    case 3:
+                        valuables.add(ValuableFactory.getValuable("Iron Ingot"));
+                        tempValue += ValuableFactory.getValuable("Iron Ingot").getValue();
+                        break;
+                }
             }
+            try {
+                sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            catalog.addedValuables("" + tempValue);
+            treasureRoom.add(valuables);
         }
-
-        treasureRoom.add(valuables);
     }
 }

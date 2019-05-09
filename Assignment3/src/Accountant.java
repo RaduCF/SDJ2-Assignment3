@@ -3,23 +3,22 @@ public class Accountant implements Runnable {
 
     private TreasureRoom treasureRoom;
     private Catalog catalog;
+    private int seconds;
 
-public Accountant(TreasureRoom treasureRoom)
+public Accountant(TreasureRoom treasureRoom, int seconds)
 {
     this.catalog = Catalog.getInstance();
     this.treasureRoom= treasureRoom;
-
+    this.seconds = seconds;
 }
 
     @Override
     public void run() {
-
         while(true){
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(seconds);
                 catalog.totalMoney(countWealth());
-                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

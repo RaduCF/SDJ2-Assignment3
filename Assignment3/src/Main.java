@@ -7,13 +7,13 @@ public class Main {
 
         TaxCollector taxCollector = new TaxCollector(treasureRoom);
 
-        Accountant[] accountants = new Accountant[2];
+        Accountant[] accountants = new Accountant[3];
 
         for (int i = 0; i < 3; i++){
-            accountants[i] = new Accountant(treasureRoom);
+            accountants[i] = new Accountant(treasureRoom, (i+1)*3000);
         }
 
-        Thread[] threads = new Thread[2];
+        Thread[] threads = new Thread[3];
 
         for (int t = 0; t < 3; t++){
             threads[t] = new Thread(accountants[t]);

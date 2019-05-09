@@ -19,11 +19,11 @@ public class Catalog {
     }
 
     public void throwParty(int value) {
-        System.out.println("The King threw a party with a value of " + value);
+        System.out.println("The King threw a party with a value of " + value + "$");
     }
 
-    public void partyCanceled() {
-        System.out.println("The King wanted to throw a party but not enough money was available.");
+    public void partyCanceled(int value) {
+        System.out.println("The King wanted to throw a party worth " + value + "$, but not enough money was available.");
     }
 
     public void totalMoney(int value) {
@@ -31,6 +31,6 @@ public class Catalog {
     }
 
     public void addedValuables(String valuables) {
-        System.out.println("The tax collector added these valuables to the treasure: " + valuables);
+        System.out.println("The tax collector added " + valuables + "$ to the treasure.");
     }
 }

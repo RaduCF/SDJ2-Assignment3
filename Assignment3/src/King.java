@@ -13,9 +13,16 @@ public class King implements Runnable {
     @Override
     public void run() {
         while (true) {
+
             int value = randomValue(100, 200);
-            treasure.GetValue(value);
-            catalog.throwParty(value);
+
+            if (treasure.getBalance() >= value) {
+                treasure.GetValue(value);
+                catalog.throwParty(value);
+            }
+            else{
+                catalog.partyCanceled(value);
+            }
             try {
                 sleep(15000);
             } catch (InterruptedException e) {
