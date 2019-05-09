@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class TaxCollector {
+public class TaxCollector implements Runnable{
 
     TreasureRoom treasureRoom;
 
@@ -9,8 +9,8 @@ public class TaxCollector {
         this.treasureRoom = treasureRoom;
     }
 
-    public void collectTax()
-    {
+    @Override
+    public void run() {
         ArrayList<Valuable> valuables = new ArrayList<>();
 
         int value = (int)((Math.random() * 150) + 50);
@@ -39,5 +39,4 @@ public class TaxCollector {
 
         treasureRoom.add(valuables);
     }
-
 }
