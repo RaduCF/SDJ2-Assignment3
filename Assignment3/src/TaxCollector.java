@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class TaxCollector implements Runnable{
 
-    TreasureRoom treasureRoom;
+    private TreasureRoom treasureRoom;
 
     public TaxCollector(TreasureRoom treasureRoom)
     {
@@ -23,18 +23,21 @@ public class TaxCollector implements Runnable{
             {
                 case 0:
                     valuables.add(ValuableFactory.getValuable("Diamond"));
+                    tempValue += ValuableFactory.getValuable("Diamond").getValue();
                     break;
                 case 1:
                     valuables.add(ValuableFactory.getValuable("Emerald"));
+                    tempValue += ValuableFactory.getValuable("Emerald").getValue();
                     break;
                 case 2:
                     valuables.add(ValuableFactory.getValuable("Gold Ingot"));
+                    tempValue += ValuableFactory.getValuable("Gold Ingot").getValue();
                     break;
                 case 3:
                     valuables.add(ValuableFactory.getValuable("Iron Ingot"));
+                    tempValue += ValuableFactory.getValuable("Iron Ingot").getValue();
                     break;
             }
-
         }
 
         treasureRoom.add(valuables);
