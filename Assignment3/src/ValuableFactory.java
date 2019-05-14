@@ -2,11 +2,6 @@ import java.util.WeakHashMap;
 
 public class ValuableFactory {
 
-    private static IronIngot ironIngot;
-    private static GoldIngot goldIngot;
-    private static Diamond diamond;
-    private static Emerald emerald;
-
     private static WeakHashMap<String, Valuable> hashmap = new WeakHashMap<>();
 
     public static Valuable getValuable(String name)
