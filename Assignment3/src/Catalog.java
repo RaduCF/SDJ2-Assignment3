@@ -13,7 +13,6 @@ public class Catalog {
                     instance = new Catalog();
                 }
             }
-            instance = new Catalog();
         }
         return instance;
     }
@@ -23,7 +22,7 @@ public class Catalog {
     }
 
     public void partyCanceled(int value) {
-        System.out.println("The King wanted to throw a party worth " + value + "$, but not enough money was available.");
+        System.out.println("The King wanted to throw a party worth " + value + "$, but not enough money were available.");
     }
 
     public void totalMoney(int value) {

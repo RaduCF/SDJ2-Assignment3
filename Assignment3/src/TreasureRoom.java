@@ -19,7 +19,7 @@ public class TreasureRoom {
 	/**
 	 * returns closest lower integer value and subtracts from this
 	 * @param value - is how much you want to take out
-	 * @return the closest nummber to the initial value
+	 * @return the closest number to the initial value
 	 */
 	public int GetValue(int value) {
 		int[] values = {8,4,2,1};
@@ -33,6 +33,7 @@ public class TreasureRoom {
 
 		int valueIndex = 0;
 		int out = 0;
+
 		for (int i = 0; i < valuables.size(); i++) {
 
 			int currentVal = valuables.get(i).getValue();

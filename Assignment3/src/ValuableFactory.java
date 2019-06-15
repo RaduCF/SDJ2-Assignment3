@@ -5,10 +5,8 @@ public class ValuableFactory {
     private static Diamond diamond;
     private static Emerald emerald;
 
-    public static Valuable getValuable(String name)
-    {
-        switch (name)
-        {
+    public static Valuable getValuable(String name) {
+        switch (name) {
             case "Diamond":
                 if (diamond == null)
                     diamond = new Diamond();
@@ -25,8 +23,8 @@ public class ValuableFactory {
                 if (ironIngot == null)
                     ironIngot = new IronIngot();
                 return ironIngot;
-                default:
-                    return null;
+            default:
+                return null;
         }
     }
 }

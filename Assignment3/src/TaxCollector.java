@@ -18,12 +18,12 @@ public class TaxCollector implements Runnable {
         {
             ArrayList<Valuable> valuables = new ArrayList<>();
 
-            int value = (int) ((Math.random() * 150) + 50);
+            int value = (int) (Math.floor(Math.random() * 150) + 50);
 
             int tempValue = 0;
             while (tempValue < value) {
 
-                switch ((int) (Math.random() * 4)) {
+                switch ((int) (Math.floor(Math.random() * 4))) {
                     case 0:
                         valuables.add(ValuableFactory.getValuable("Diamond"));
                         tempValue += ValuableFactory.getValuable("Diamond").getValue();
@@ -42,13 +42,16 @@ public class TaxCollector implements Runnable {
                         break;
                 }
             }
+
             try {
-                sleep(5000);
+                sleep(7000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            catalog.addedValuables("" + tempValue);
+
             treasureRoom.add(valuables);
+
+            catalog.addedValuables("" + tempValue);
         }
     }
 }
